@@ -32,9 +32,10 @@ class QuestionController extends Controller
     public function store(Request $request)
     {
         $questions = Questions::create([
-            'type' => $request->question_type,
             'questions' => $request->question,
             'correct_answers' => $request->correct_answer,
+            'type' => $request->question_type,
+            'description' => $request->description,
         ]);
         $questions->save();
 

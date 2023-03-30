@@ -13,7 +13,8 @@ class Questions extends Model
         'id',
         'questions',
         'correct_answers',
-        'type'
+        'type',
+        'description'
     ];
     
 }

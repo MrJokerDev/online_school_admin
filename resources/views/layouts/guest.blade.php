@@ -22,19 +22,9 @@
                 </a>
             </div>
 
-            <div class="w-full text-center sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
-                You not admin
+            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+                {{ $slot }}
             </div>
-            
-            <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-
-                    <x-responsive-nav-link :href="route('logout')"
-                            onclick="event.preventDefault();
-                            this.closest('form').submit();">
-                            {{ __('Log Out') }}
-                    </x-responsive-nav-link>
-            </form>
         </div>
     </body>
 </html>

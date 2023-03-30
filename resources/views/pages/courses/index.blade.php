@@ -18,9 +18,6 @@
                                         Courses
                                     </th>
                                     <th scope="col" class="px-6 py-3">
-                                        Level
-                                    </th>
-                                    <th scope="col" class="px-6 py-3">
                                         Actions
                                     </th>
                                 </tr>
@@ -36,13 +33,6 @@
                                         </th>
                                         <td class="px-6 py-4">
                                             {{ $course->courses }}
-                                        </td>
-                                        <td class="px-6 py-4">
-                                        @foreach($levels as $level)
-                                            @if($course->id == $level->id)
-                                                {{ $level->level }}
-                                            @endif
-                                        @endforeach
                                         </td>
                                         <td class="px-6 py-4">
                                             <form action="{{ route('courses.destroy',$course->id) }}" method="POST">

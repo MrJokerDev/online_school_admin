@@ -16,11 +16,11 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::user()->id != 1)
+        if (Auth::user()->id == 1)
         {
-            return view('welcome');
+            return $next($request);
         }
-         return $next($request);
-        
+
+        return response("You not admin");
     }
 }

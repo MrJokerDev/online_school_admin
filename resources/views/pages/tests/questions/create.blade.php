@@ -8,9 +8,8 @@
                         <div class="grid grid-cols-3 gap-4">
                         <div class="mb-6 col-span-2">
                             <label for="text" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Question</label>
-                            <textarea type="text" name="question" id="text" name="question" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required></textarea>
+                            <input type="text" name="question" id="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
                         </div>
-
                         <div class="mb-6">   
                             <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an option</label>
                             <select id="countries" name="question_type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
@@ -21,6 +20,10 @@
                                 <option value="text">Text</option>
                                 <option value="textarea">Textarea</option>
                             </select>
+                        </div>
+                        <div class="mb-6 col-span-4">
+                            <label for="text" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
+                            <textarea type="text" name="description" id="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required></textarea>
                         </div>
                         </div>
                         <div class="mb-6">
