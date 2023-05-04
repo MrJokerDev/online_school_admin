@@ -25,6 +25,8 @@
                             </div> 
                         @endforeach
 
+                        <button type="button" name="add" id="add" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">add</button>
+
                         <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
                     </form>
                 </div>
@@ -32,3 +34,22 @@
         </div>
     </div>
 </x-app-layout>
+
+<script>
+    let i = 1;
+
+    $('#add').click(function(){
+        ++i;
+        $('#input').append(
+            `<div class="int">
+                <label for="text" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">answer</label>
+                <input type="text" name="answer[${i}][answer]" id="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                <button type="button" class="remote text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Remote</button>
+            </div>
+            `
+        );
+    });
+    $(document).on('click', '.remote', function(){
+        $(this).parents('.int').remove();
+    });
+</script>

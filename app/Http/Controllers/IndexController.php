@@ -3,6 +3,10 @@
 namespace App\Http\Controllers  ;
 
 use App\Http\Controllers\Controller;
+use App\Models\Courses;
+use App\Models\Lessons;
+use App\Models\Levels;
+use App\Models\Questions;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -14,7 +18,13 @@ class IndexController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('dashboard', compact('users'));
+        $courses = Courses::all();
+        $lessons = Lessons::all();
+        $questions = Questions::all();
+
+        //dd($lessons);
+        
+        return view('dashboard', compact('users', 'courses', 'lessons'));
     }
 
     /**

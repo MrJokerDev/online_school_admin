@@ -19,8 +19,8 @@ class AdminMiddleware
         if (Auth::user()->id == 1)
         {
             return $next($request);
+        }else{
+            return response("You not admin");
         }
-
-        return response("You not admin");
     }
 }

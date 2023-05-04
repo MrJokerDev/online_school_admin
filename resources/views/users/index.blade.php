@@ -8,13 +8,13 @@
                                 class="text-xs text-gray-800 uppercase bg-gray-50 dark:bg-gray-900 dark:text-gray-400">
                                 <tr>
                                     <th scope="col" class="px-6 py-3">
+                                        Foto
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
                                         Student Fullname
                                     </th>
                                     <th scope="col" class="px-6 py-3">
                                         Level
-                                    </th>
-                                    <th scope="col" class="px-6 py-3 text-center">
-                                        Online
                                     </th>
                                     <th scope="col" class="px-6 py-3">
                                         User status 
@@ -33,26 +33,37 @@
                                         <th
                                             scope="row"
                                             class="px-6 py-4 font-medium uppercase text-gray-900 whitespace-nowrap dark:text-white">
+                                            @if($user->foto === null)
+                                                <img class="w-9 h-9 rounded-full border-4 @if(Cache::has('user-is-online-' . $user->id)) border-green-500 @else border-red-500 @endif" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="user photo">
+                                            @else
+                                                <img class="w-9 h-9 rounded-full border-4 @if(Cache::has('user-is-online-' . $user->id)) border-green-500 @else border-red-500 @endif" src="{{ $user->foto }}" alt="user photo">
+                                            @endif
+                                        </th>
+                                        <th
+                                            scope="row"
+                                            class="px-6 py-4 font-medium uppercase text-gray-900 whitespace-nowrap dark:text-white">
                                             {{ $user->first_name }} {{ $user->last_name }}
                                         </th>
                                         <td class="px-6 py-4">
-                                            @if($user->level == 0)
-                                                Super admin
+                                            @if($user->id == 1)
+                                                <span class="bg-gray-900 text-white text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-500 dark:text-white">super admin</span> 
+                                            @elseif($user->id > 1 && $user->level == 0)
+                                                <span class="bg-green-600 text-white text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-500 dark:text-white">new user</span> 
                                             @else
                                                 @foreach($levels as $level)
                                                     @if($user->level == $level->id)
-                                                        {{ $level->level }}
+                                                        <span class="bg-yellow-500 text-white text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-500 dark:text-white">{{ $level->level }}</span> 
                                                     @endif
                                                 @endforeach
                                             @endif
                                         </td>
-                                        <td class="text-center">
+                                        {{-- <td class="text-center">
                                             @if(Cache::has('user-is-online-' . $user->id))
                                                 <span class="bg-green-400 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-green-400"></span>
                                             @else
                                                 <span class="bg-red-500 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-red-500"></span>
                                             @endif
-                                        </td>
+                                        </td> --}}
                                         <td class="px-6 py-4">
                                             @if ($user->status == 'inactive')
                                                 <span class="bg-red-500 text-white text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-red-500 dark:text-white">{{$user->status}}</span>
